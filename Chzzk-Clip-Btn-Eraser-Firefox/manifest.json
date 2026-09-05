@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "치지직 클립 버튼 지우개",
+  "version": "1.0.0",
+  "description": "치지직 클립 '클릭하여 라이브 시청' 버튼을 지우고 쾌적하게 시청하세요!",
+  "permissions": ["scripting"],
+  "host_permissions": [
+    "https://chzzk.naver.com/*",
+    "https://m.naver.com/shorts/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chzzk.naver.com/*", "https://m.naver.com/shorts/*"],
+      "js": ["inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@chzzk-clip-btn-eraser.lirpa",
+      "strict_min_version": "121.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
